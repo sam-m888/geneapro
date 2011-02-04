@@ -7,7 +7,7 @@
 
 import os, re
 
-framework = file ("framework.thtml").read()
+framework = file ("templates/framework.thtml").read()
 
 BLOCK_START_RE = re.compile("<% block (\w+) %>")
 SETVAR_RE = re.compile("<% var (\w+) (\w+) %>")
@@ -24,7 +24,7 @@ def process_template(f):
 
     # Process specific template, to declare all variables
 
-    for line in file(f).readlines():
+    for line in file(os.path.join("templates", f)).readlines():
         m = BLOCK_START_RE.match(line)  # at beginning of string
         if m:
             blockname = m.group(1)
@@ -79,7 +79,7 @@ def process_template(f):
     file (os.path.splitext(f)[0] + ".html", "w").write (content)
 
 
-for html in [f for f in os.listdir(".") if f.endswith(".thtml")]:
+for html in [f for f in os.listdir("templates") if f.endswith(".thtml")]:
     if html != "framework.thtml":
         process_template(html)
 
