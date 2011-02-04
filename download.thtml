@@ -1,0 +1,16 @@
+<% block container %>
+<p>
+This is open-source software (and free).
+</p>
+
+<p>
+You can download it from <a href="https://github.com/briot/geneapro">Github</a>,
+or by clicking on the links at the top of the page
+</p>
+
+<p>
+Do not forget to let me know if you are using Geneapro, this is always
+great motivation!
+</p>
+
+<% endblock container %>

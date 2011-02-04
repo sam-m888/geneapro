@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Geneapro @ GitHub</title>
+	<style type="text/css">
+body {margin:0; background-color: white; font-family: "Arial"; color: #000000}
+  
+#head {background-color:#39414A; padding:0 0 0 30px; margin:0; height:90px;
+       background-image: -moz-linear-gradient(top, #39414A, #777); 
+       background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #39414A),color-stop(1, #777)); 
+       background-image: linear-gradient(top, #39414A, #777);
+       filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#39414A', EndColorStr='#777'); }
+
+#head > a {text-decoration:none; display:block;
+         font-size:3.8em; color: #ec8d05; font-style:italic;
+         text-shadow: black 3px 3px 7px;}
+#head .phrase{font-size:1.1em; color:white; font-style:italic;
+   margin:-15px 0 0 90px; text-shadow: black 1px 1px 2px}
+#head .download {float: right; margin-right:100px}
+
+#sidebar {width:200px; float:left; height:100%}
+
+#sidebar h2 {margin:5px 0 0 5px; padding:3px; color:white;
+             font-weight:normal; font-size:1em;
+             border:1px solid #39414A;
+             width:187px; /* 187 = #sidebar'width - h2'margin-left - h2'padding-left
+                                   - h2'padding-right */
+             background:#777}
+#sidebar h2.selected {background:#39414A}
+#sidebar h2 a {text-decoration:none; color:white; white-space:nowrap;
+   display:inline-block; width:100%}
+#sidebar h2:hover,
+#sidebar li:hover {background:#ec8d05}
+#sidebar h2:after {position:absolute; margin-left:-10px; color:white;
+    content:"\00BB"} /* see http://www.evotech.net/articles/testjsentities.html */
+
+#sidebar ul {list-style:none; margin:8px 0 10px 20px; padding:0}
+#sidebar li {width:100%}
+#sidebar li a {text-decoration:none; color:black; white-space:nowrap; width:100%;
+   display:inline-block}
+#sidebar li a:before {content:"\00BB"; padding-right:5px}
+
+#container {margin: 0 0 0 220px;  /* 210= #sidebar'width + 20 */
+            max-width: 700px}
+#container h2 {border-bottom:1px solid black}
+
+#container img {max-width:200px; max-height:200px; margin-left:15px}
+         
+#container h3 {clear:both}
+	</style>
+</head>
+
+<body>
+  <a href="http://github.com/briot/geneapro"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+
+  <div id="head">
+     <div class="download">
+       <a href="http://github.com/briot/geneapro/zipball/master">
+          <img border="0" width="90"
+               src="https://github.com/images/modules/download/zip.png"></a>
+       <a href="http://github.com/briot/geneapro/tarball/master">
+          <img border="0" width="90"
+               src="https://github.com/images/modules/download/tar.png"></a>
+    </div>
+    <a href="http://github.com/briot/geneapro">G&eacute;n&eacute;apro</a>
+    <div class="phrase">Assert your genealogy</div>
+   </div>
+
+  <div id="sidebar">
+        <h2><a href="index.html">Home</a></h2>
+
+        <h2 class="selected"><a href="features.html">Features</a></h2>
+        <ul>
+          <li><a href="gedcom.html">Gedcom</a></li>
+          <li><a href="reports.html">Reports</a></li>
+          <li><a href="highlighting.html">People highlighting</a></li>
+        </ul>
+
+        <h2><a href="screenshots.html">Screenshots</a></h2>
+
+        <h2><a href="download.html">Download</a></h2>
+
+        <h2><a href="impl.html">Implementation</a></h2>
+  </div>
+  
+  <div id="container">
+     <h2>Features</h2>
+
+<p>
+Geneapro only has a limited number of features currently, but hopefully
+things will improve.
+</p>
+
+<p>
+This is open-source software, so feel free to contribute your ideas,
+but reports or wishes.
+</p>
+
+<p>
+Some general questions and answers that are common to all reports:
+</p>
+
+<ol>
+  <li><b>Is there a limit to the number of persons in the database ?</b>
+      <p>No.</p>
+      <p>
+   Geneapro uses a real <a href="gentech.html">database</a>
+   (postgreSQL, mySQL or sqlite) as its data storage, and they do
+   not impose limits.
+      </p>
+      <p>
+   Geneapro is carefully optimized to limit the number of queries. For
+   instance, to display the pedigree, it needs one query per generation
+   in your whole tree (even in the parts that are not displayed), plus
+   a few others to get the birth and death dates. Using style highlighting
+   for the persons does not add more than a few extra SQL queries, so these
+   are all pretty cheap, especially when the database is also running
+   locally on the same machine.
+      </p>
+  </li>
+
+  <li><b>Does geneapro support same-sex marriages ?</b>
+      <p>Yes.</p>
+      <p>
+   A marriage is just an <a href="gentech.html">event</a> in which several
+   people took part,
+   just as in any other event. These persons are given a role in the
+   event (for instance "husband" and "wife"), but nothing prevents you
+   from either creating new roles ("partner"), or using two husbands or
+   two wifes.
+      </p>
+      <p>
+   Some events and roles plays a special part since they are used to
+   display the pedigree and fan charts (father and mother of a child for
+   instance).
+      </p>
+  </li>
+
+  <li><b>Does Geneapro handle the implex ?</b>
+      <p>
+   The implex is one person appears several times in a pedigree (for
+   instance, the same couple was the parents of two of your ancestors).
+   Like all other genealogical software, Geneapro will of course not
+   duplicate data about those persons in the database. In addition, you
+   can configure the highlighting styles so that a person that appears
+   multiple times in the tree or fanchart visible on the screen gets
+   special colors (background or foreground) and/or fonts. This makes
+   it easier to see them immediately.
+      </p>
+  </li>
+
+  <li><b>Does Geneapro support sources ?</b>
+      <p>
+   Although support for sources is currently limited, Geneapro will
+   nonetheless show a special tick mark next to birth, marriage or
+   death events when they have a proper associated source. This is
+   a convenient way to find out which sources should be updated.
+      </p>
+  </li>
+
+  <li><b>What format should I use for dates ?</b>
+      <p>
+   Geneapro supports multiple input formats for dates. In particular,
+   the usual formats yyyy-mm-dd, dd-mm-yyyy, "yyyy mm, dd", as well as
+   ambiguous formats like "about yyyy", "ca yyyy", "between yyyy-mm and yyyy".
+   It also supports other calendars like Julian dates and the French
+   revolutionary calendar.
+      </p>
+      <p>
+   In fact, you are free to use any format you want, and geneapro will
+   store it exactly as is in its database, and print it exactly as. But
+   it will try internally to make sense out of it, for sorting purposes.
+   This is done automatically.
+      </p>
+</ol>
+
+</p>
+
+  </div>
+</body>
+</html>

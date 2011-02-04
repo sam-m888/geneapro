@@ -1,0 +1,98 @@
+<% var section features %>
+
+<% block style %>
+<% endblock style %>
+
+<% block container %>
+<h2>Features</h2>
+
+<p>
+Geneapro only has a limited number of features currently, but hopefully
+things will improve.
+</p>
+
+<p>
+This is open-source software, so feel free to contribute your ideas,
+but reports or wishes.
+</p>
+
+<p>
+Some general questions and answers that are common to all reports:
+</p>
+
+<ol>
+  <li><b>Is there a limit to the number of persons in the database ?</b>
+      <p>No.</p>
+      <p>
+   Geneapro uses a real <a href="gentech.html">database</a>
+   (postgreSQL, mySQL or sqlite) as its data storage, and they do
+   not impose limits.
+      </p>
+      <p>
+   Geneapro is carefully optimized to limit the number of queries. For
+   instance, to display the pedigree, it needs one query per generation
+   in your whole tree (even in the parts that are not displayed), plus
+   a few others to get the birth and death dates. Using style highlighting
+   for the persons does not add more than a few extra SQL queries, so these
+   are all pretty cheap, especially when the database is also running
+   locally on the same machine.
+      </p>
+  </li>
+
+  <li><b>Does geneapro support same-sex marriages ?</b>
+      <p>Yes.</p>
+      <p>
+   A marriage is just an <a href="gentech.html">event</a> in which several
+   people took part,
+   just as in any other event. These persons are given a role in the
+   event (for instance "husband" and "wife"), but nothing prevents you
+   from either creating new roles ("partner"), or using two husbands or
+   two wifes.
+      </p>
+      <p>
+   Some events and roles plays a special part since they are used to
+   display the pedigree and fan charts (father and mother of a child for
+   instance).
+      </p>
+  </li>
+
+  <li><b>Does Geneapro handle the implex ?</b>
+      <p>
+   The implex is one person appears several times in a pedigree (for
+   instance, the same couple was the parents of two of your ancestors).
+   Like all other genealogical software, Geneapro will of course not
+   duplicate data about those persons in the database. In addition, you
+   can configure the highlighting styles so that a person that appears
+   multiple times in the tree or fanchart visible on the screen gets
+   special colors (background or foreground) and/or fonts. This makes
+   it easier to see them immediately.
+      </p>
+  </li>
+
+  <li><b>Does Geneapro support sources ?</b>
+      <p>
+   Although support for sources is currently limited, Geneapro will
+   nonetheless show a special tick mark next to birth, marriage or
+   death events when they have a proper associated source. This is
+   a convenient way to find out which sources should be updated.
+      </p>
+  </li>
+
+  <li><b>What format should I use for dates ?</b>
+      <p>
+   Geneapro supports multiple input formats for dates. In particular,
+   the usual formats yyyy-mm-dd, dd-mm-yyyy, "yyyy mm, dd", as well as
+   ambiguous formats like "about yyyy", "ca yyyy", "between yyyy-mm and yyyy".
+   It also supports other calendars like Julian dates and the French
+   revolutionary calendar.
+      </p>
+      <p>
+   In fact, you are free to use any format you want, and geneapro will
+   store it exactly as is in its database, and print it exactly as. But
+   it will try internally to make sense out of it, for sorting purposes.
+   This is done automatically.
+      </p>
+</ol>
+
+</p>
+<% endblock container %>
