@@ -47,7 +47,7 @@ body {margin:0; background-color: white; font-family: "Arial"; color: #000000}
 #container h2 {border-bottom:1px solid black}
 
 #container img {max-width:200px; max-height:200px; margin-left:15px}
-         
+         <% styles %>
 #container h3 {clear:both}
 	</style>
 </head>
@@ -69,86 +69,51 @@ body {margin:0; background-color: white; font-family: "Arial"; color: #000000}
    </div>
 
   <div id="sidebar">
+     <% if file index.thtml %>
         <h2 class="selected"><a href="index.html">Home</a></h2>
+     <% else %>
+        <h2><a href="index.html">Home</a></h2>
+     <% endif %>
 
+     <% ifvar section features %>
+        <h2 class="selected"><a href="features.html">Features</a></h2>
+        <ul>
+          <li><a href="gedcom.html">Gedcom</a></li>
+          <li><a href="reports.html">Reports</a></li>
+          <li><a href="highlighting.html">People highlighting</a></li>
+        </ul>
+     <% else %>
         <h2><a href="features.html">Features</a></h2>
+     <% endif %>
 
+     <% if file screenshots.thtml %>
+        <h2 class="selected"><a href="screenshots.html">Screenshots</a></h2>
+     <% else %>
         <h2><a href="screenshots.html">Screenshots</a></h2>
+     <% endif %>
 
+     <% if file download.thtml %>
+        <h2 class="selected"><a href="download.html">Download</a></h2>
+     <% else %>
         <h2><a href="download.html">Download</a></h2>
+     <% endif %>
 
+     <% ifvar section implementation %>
+        <h2 class="selected"><a href="impl.html">Implementation</a></h2>
+        <ul>
+           <li><a href="python.html">Python</a></li>
+           <li><a href="django.html">Django</a></li>
+           <li><a href="gentech.html">Gentech</a></li>
+           <li><a href="jquery.html">jQuery</a></li>
+           <li><a href="links.html">Related work</a></li>
+        </ul>
+     <% else %>
         <h2><a href="impl.html">Implementation</a></h2>
+     <% endif %>
   </div>
   
   <div id="container">
-     
-<p>
-<b>Geneapro</b> is a web-based genealogical software.
-</p>
-
-<p>
-As opposed to most genealogical software out there, it is based on the
-<a href="http://www.ngsgenealogy.org/cs/GenTech_Projects">GenTech</a>
-data model, designed by a group of experts.
-</p>
-
-<p>
-This model is based on the concept of <b>assertions</b> (positive or negative).
-Every time you find a source of information, you extract and record
-a number of facts from it (<i>"The person X was born on that date,
-her mother was Y"</i>). You can
-then match the persons mentioned in those documents with those already
-in your database, making assertions (<i>"The person X must be the same as
-P, already in my database, because of such and such reason"</i>).
-As a result, you can record any number of information for each person in
-your database (multiple birth dates, when there are ambiguities for instance).
-</p>
-
-<p>
-The traditional behavior with other genealogical applications is to then
-delete one of those birth dates if you find extra information that makes you
-think it was wrong. But not with Geneapro. Instead, you would simply
-transform that into a <b>negative assertion</b> (<i>"Person X cannot be born at
-that date because..."</i>). Geneapro will no longer show you that date by
-default, but the information is still there. That way, when you find
-another reference to a person with the same name and that date, you know
-that can't be the right date.
-</p>
-
-<p>
-So far, the above scenario is partially supported in Geneapro: it supports
-negative assertions, but will not currently let you edit the database (you
-can only import existing information from some other software through a
-<a href="gedcom.html">GEDCOM</a> file.
-</p>
-
-<p>
-But this is coming soon!
-</p>
-
-<h2>Install</h2>
-<p>To install:
- <ul>
-  <li>Create a database (change settings.py if appropriate to reflect the database engine and name)</li>
-  <li>run   <tt>make reset</tt><br>
-     This creates the tables and imports initial data in it.</li>
-  <li>run   <tt>./manage.py import file.ged</tt><br>
-     to import the given gedcom file in the database</li>
- </ul>
-</p>
-<p>
-You can then run the server as usual with django by running<br>
-<tt>./manage.py  runserver</tt><br>
-and connect to <tt>http:/127.0.0.1:8000/geneapro/</tt>
-</p>
-
-<h2>License</h2>
-<p>GPL</p>
-
-<h2>Authors</h2>
-<p>Emmanuel Briot (briot.emmanuel at gmail dot com)</p>
-
-
+     <% container %>
   </div>
 </body>
 </html>
