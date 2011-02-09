@@ -17,7 +17,7 @@ body {margin:0; background-color: white; font-family: "Arial"; color: #000000}
          font-size:3.8em; color: #ec8d05; font-style:italic;
          text-shadow: black 3px 3px 7px;}
 #head .phrase{font-size:1.1em; color:white; font-style:italic;
-   margin:-15px 0 0 90px; text-shadow: black 1px 1px 2px}
+   margin:-15px 0 0 65px; text-shadow: black 1px 1px 2px}
 #head .download {float: right; margin-right:100px}
 
 #sidebar {width:200px; float:left; height:100%}
@@ -65,7 +65,7 @@ body {margin:0; background-color: white; font-family: "Arial"; color: #000000}
                src="https://github.com/images/modules/download/tar.png"></a>
     </div>
     <a href="http://github.com/briot/geneapro">G&eacute;n&eacute;apro</a>
-    <div class="phrase">Assert your genealogy</div>
+    <div class="phrase">Evidence your genealogy</div>
    </div>
 
   <div id="sidebar">
@@ -101,6 +101,12 @@ The code of geneapro includes several packages that could be reused in other pro
 
   <li><pre>geneapro/utils/gedcom.py</pre><br>
       A simple gedcom parser, which creates a in-memory representation of the gedcom file based on dict(). Missing from it is the handling of characters encoding, mostly because I do not have an example of gedcom file where the encoding is not utf8.
+      </li>
+
+  <li><pre>gedcom_view.py</pre></br>
+      A simple standalone program to view GEDCOM files in a more convenient fashion:
+      lines are indented with spaces (better showing the structure of the file), and
+      color highlighting is used to show the various parts of the line
       </li>
 </ul>
 
