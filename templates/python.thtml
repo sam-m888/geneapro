@@ -18,6 +18,12 @@ The code of geneapro includes several packages that could be reused in other pro
   <li><pre>geneapro/utils/gedcom.py</pre><br>
       A simple gedcom parser, which creates a in-memory representation of the gedcom file based on dict(). Missing from it is the handling of characters encoding, mostly because I do not have an example of gedcom file where the encoding is not utf8.
       </li>
+
+  <li><pre>gedcom_view.py</pre></br>
+      A simple standalone program to view GEDCOM files in a more convenient fashion:
+      lines are indented with spaces (better showing the structure of the file), and
+      color highlighting is used to show the various parts of the line
+      </li>
 </ul>
 
 <% endblock container %>
