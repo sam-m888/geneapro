@@ -57,6 +57,7 @@ your genealogical tree, showing various aspects.
       can be configured by creating <a href="highlighting.html">Highlighting
       rules</a>.
       </p>
+      <p>Double-clicking on a person leads you to the Person view</p>
       </li>
 
   <li>A <b>Fan chart</b>
@@ -89,6 +90,27 @@ your genealogical tree, showing various aspects.
       in the database.
       </p>
    </li>
+
+   <li>A <b>Person</b> view
+      <a href="person1.png" style="float:right">
+         <img src="person1.png">
+      </a>
+      This view summarizes all knowns characteristics of a person, and all
+      events to which she was part (either as the principal, or in any other
+      role). When sources are available for these conclusions, hyper-links
+      are displayed. This allows you to quickly see which conclusions need
+      further sources.
+   </li>
+
+   <li>A <b>List of persons</b> view
+      <a href="persons1.png" style="float:right">
+         <img src="persons1.png">
+      </a>
+      This view lists all known persons in the database. The table can be
+      sorted on any of the columns, or can be filtered to see a subset of
+      the persons. Clicking on a person will lead you to the Person view.
+   </li>
+     
 </ul>
 
 <p>

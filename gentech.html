@@ -139,6 +139,50 @@ I can think of several ways to store the fact that Y is a child of X:
       This is approach that was chosen in GeneaPro.</li>
 </ul>
 
+<h3>Individual sources</h3>
+
+<p>
+In GEDCOM, sources can be set directly on individuals, without going through
+an event. This in general occurs when a person is cited in a source (so
+we know her name, but not much else).
+</p>
+<p>
+In Geneapro, we store those as CENS (Census) events, using the source for
+that event.
+</p>
+
+<h3>Event notes</h3>
+
+<p>
+In GEDCOM, notes can be associated with events. It isn't clear how these
+are represented in the GENTECH data model.
+It would be tempting to add the note into the name of the event, but then
+this will be lost if we export to GEDCOM again. We do not add a
+"comment/note" field to Event either, since this would not be linked
+through an assertion (or a source).
+</p>
+
+<h3>Open questions</h3>
+
+<ul>
+  <li>How to store images for places ?<br>
+      We need to go through a source, to indicate where the image comes
+      from. The source itself has a place, so we could simply create a new
+      source, set it for that place, and associate representations for it.
+      <br>
+      Such a source is not linked to a person via an assertion, so we know
+      it is stricly about its <i>subject-place</i> (field defined in GENTECH).
+      <br>
+      Such sources can be used to store the history of a place, old or
+      recent images,...<br>
+      However, this should not be used to store old names for places. In
+      this case, GENTECH recommends storing the old name as a place of its
+      own, with an existence-date. (But then I am not sure how to link from
+      these historial names to the current corresponding places).
+  </li>
+  <li>How to store notes for events and individuals?</li>
+</ul>
+
 
   </div>
 </body>
