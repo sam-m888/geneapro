@@ -41,7 +41,10 @@ genealogical software of choice), and <a>RootsMagic</a>.
 <p>
 Geneapro will handle correctly utf-8 Gedcom files (as opposed to some
 of the mainstream genealogical applications). Thus, it will preserve
-accents in names (and everywhere, of course)
+accents in names (and everywhere, of course). Some attempt is made to
+import other encodings (for instance, <i>Heredis</i> exports as <i>ANSI</i>,
+although the gedcom norm forbids this), but this support is partial at
+the moment. We recommend to always export as utf-8.
 </p>
 
 <p>
