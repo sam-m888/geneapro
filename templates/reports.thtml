@@ -97,7 +97,8 @@ your genealogical tree, showing various aspects.
       </a>
       This view summarizes all knowns characteristics of a person, and all
       events to which she was part (either as the principal, or in any other
-      role). When sources are available for these conclusions, hyper-links
+      role). When sources are available for these conclusions, hyper-links to
+      the source view
       are displayed. This allows you to quickly see which conclusions need
       further sources.
    </li>
@@ -109,6 +110,27 @@ your genealogical tree, showing various aspects.
       This view lists all known persons in the database. The table can be
       sorted on any of the columns, or can be filtered to see a subset of
       the persons. Clicking on a person will lead you to the Person view.
+   </li>
+
+   <li>A <b>Source</b> view
+      <a href="source1.png" style="float:right">
+         <img src="source1.png">
+      </a>
+      <a href="source2.png" style="float:right">
+         <img src="source2.png">
+      </a>
+      This view describes a source. It shows all representations (images)
+      associated with the source. Each representation can be scrolled and
+      zoomed. It is also possible to perform a few basic transformations
+      on the images (convert to black-and-white,...) hopefully to make
+      them more readable.<br>
+      In addition, the details of the source (name, repository,...) are
+      displayed.</br>
+      Finally, it shows all facts and assertions that were deducted from
+      this source. There are few genealogical software that show this,
+      although this is a very convenient way to see in one glance whether
+      all information was extracted from that source, or whether you might
+      have missed some part of it when you analyzed it.
    </li>
      
 </ul>
