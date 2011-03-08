@@ -180,6 +180,7 @@ Some general questions and answers that are common to all reports:
       <p>
       Yes.
       </p>
+      <p>
       Geneapro's code is fully unicode-based. This means that all accented
       characters, asian characters and in fact any character you can currently
       type on your computer will be properly stored in the database, then
@@ -187,7 +188,65 @@ Some general questions and answers that are common to all reports:
       pages.
       </p>
   </li>
-      
+
+  <li><b>Does Geneapro provide support for merging persons ?</b>
+      <p>
+      No.
+      </p>
+      <p>
+      The idea is at the heart of the gentech datamodel that Geneapro uses.
+      Here, you
+      create any number of personas, each representing a few aspects of a
+      real-life person. For instance, if you find a birth record for John
+      Smith, you create a persona (number 10 for instance) where you only
+      record the date and place of birth (and of course, the source where you
+      found that information!) If you then find a death certificate for a
+      John Smith, you create another persona (number 11) where you only record
+      the date and place of death, and the source.
+      </p>
+      <p>
+      You then link the two personas 10 and 11 and indicate they represent
+      the same physical person. That link should have a rationale that
+      explains why these two personas are likely to be the same (in
+      other software, this would be a merge operation, but here we can
+      also provide and store an explanation for the merge).
+      </p>
+      <p>
+      At this point, Geneapro will only show one John Smith in the pedigree
+      and the list of people. But this John Smith has both birth and
+      death dates and places. So this is similar to <b>merging</b> in other
+      applications.
+      </p>
+      <p>
+      The real strength of the Gentech model, however, comes later. If at
+      any point you find out that personas 10 and 11 are not the same after
+      all, you can break the link we created earlier (and always with a
+      rationale and source, if possible). Geneapro goes back to showing two
+      John Smith in the list of persons, one where the birth is known, the
+      other where the death is known. If you ever want to link these again,
+      Geneapro will be able to tell you this is likely incorrect, and show
+      you the rationale you provided before, thus preventing you from doing
+      the same mistake again (or not...)
+      </p>
+      <p>
+      In other applications, after the merge, there is no trace as to where
+      each pieces of information came from. So you have to manually create
+      a new John Smith, and manually copy some of the information from the
+      merged one to the new one, then delete them from the merged one. And
+      you are on your own to decide which information should be moved.
+      </p>
+      <p>
+      When you import a Gedcom file, Geneapro provides a checkbox that
+      allows you whether you want to create a single persona for each person
+      in the gedcom, or whether you want to create one persona for each
+      source/person found in the gedcom, and automatically link these personas
+      together.
+      </p>
+      <p>
+      See <a href="gentech.html#merge">Gentech</a> for a technical explanation
+      of the database.
+      </p>
+   </li>
 </ol>
 
 </p>

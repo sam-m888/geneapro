@@ -173,6 +173,129 @@ characteristic), as well as store where it was found and published (in
 the source).
 </p>
 
+<h3>Families</h3>
+
+<p>The concept of <b>Family</b> as found in gedcom does not exist in
+Gentech. Such a concept is used in gedcom to store various pieces of
+information: marriages or other unions between two adults, parents of
+persons, and siblings. These can all be represented and computed
+differently in Gentech</p>
+
+<ul>
+  <li><b>Unions</b> between two persons are represented as a shared
+events. Each of the two persons has a role "principal" for the event.</li>
+  <li><b>Parents</b> of persons are found through a "birth" event, where
+the child has a role "principal", and the parents have a role "father"
+and "mother".</li>
+  <li><b>Siblings</b> can be found by looking for persons that have
+the same parents. This doesn't provide an ordering though (except by
+birth dates when they are known). To handle such a case, Gentech
+recommends creating a "children of..." group. Geneapro currently doesn't
+use this approach, but might at some point. The main issue is GUI related,
+since we might not want to force users to manually create such groups.</li>
+</ul>
+
+There is a slight problem when importing, from gedcom, a family where one
+or both parents are unknown. To preserve the "siblings" relationship between
+the children, Geneapro has to create personas for the parents, even though
+no information is known about them. But that links the children together
+through these parents. The group approach might be cleaner here.
+
+<a name="merge"/>
+<h3>Merging personas</h3>
+
+<p>
+As explained in the <a href="features.html">Features</a> page, Geneapro
+does not support the merging of two persons. However, it does support a
+way to link two or more personas to indicate they represent the same
+physical person and thus the events and characteristics of both personas
+should always be displayed together.
+</p>
+<p>
+These links must be represented as <b>assertions</b>, so that we can
+associate an optional <i>source</i>, a <i>rationale</i> to explain the
+link, a <i>surety level</i>, a <i>disproved</i> attribute to indicate that
+the two personas are definitely not the same, and so on.
+</p>
+<p>
+The Gentech datamodel proposes an approach to representing these links
+via a <b>group of personas</b>. Each of these groups represents a single
+physical
+person (so for instance the name of the group is "all personas for John Smith"
+and its type is "samePerson"). Then each persona that store some events
+or characteristics for John Smith is made a member of that group. At this
+point, the <i>assertion</i> we were talking about is between a <i>persona</i>
+and a <i>group</i> (a type of assertion specifically authorized by the
+Gentech datamodel).
+</p>
+<p>This approach works well, even though graphically we should probably hide
+the fact that there is a group underneath, and just have a "is same as"
+assertion between two personas. It has however a few disadvantages.
+
+<ul>
+  <li>Efficiency is not excellent, because everytime we display one persona we
+need extra queries to find the "sameAs" groups it belongs to, then search
+all personas in that group, and the same for those new personas. Since
+Geneapro is meant to run locally on a user's machine, this drawback is not
+major though, computers still have plenty of power to spare.</li>
+  <li>The above efficiency issue is made more important because groups can
+belong to groups. For instance, you assume that persona 10 and persona 11 are
+the same because they share the same birth date and place. We also assume
+that persona 12 and 13 are the same because they share the same marriage.
+We then discover that 11 and 12 share the same death, and therefore
+assume they are the same. Basically, the schema is as follows:
+   <pre>
+      10 and 11 (because they have same birth)    ---> Group 1
+      12 and 13 (because they have same marriage) ---> Group 2
+      Group2  (because 11 and 12 have same death) ---> Group 1
+
+      (on the last step, we can also chose to create a Group 3 instead)
+   </pre>
+<p>
+Ideally, if we disprove the "same death" assertion, we should end up
+with two persons in the list (one is the result of grouping 10 and 11,
+the other is the result of grouping 12 and 13). If instead we disprove
+the "same marriage", we end up with two personas (one is 10+11+12, the
+other is just 13).
+</p>
+<p>
+That ideal behavior cannot be achieved if we create a single group for
+all the personas, since we no longer know how they are connected
+together. So we need groups inside groups (as is represented on the
+schema above in fact). But one thing not visible on the schema, and
+that cannot be represented with the groups, is that the "same death"
+assertion is about 11 and 12. This is only visible in the rationale
+text associated with the assertion, which Geneapro cannot automatically
+use.
+<p>
+</li>
+</ul>
+<p>
+I therefore think the approach suggested by the Gentech authors is
+incorrect. the "is same as" relationship is between two personas, not
+between one persona and a group. This requires an <b>assertion</b>
+between two personas, which gentech does not recommend (but doesn't
+forbid either). The efficiency is comparable to the use of groups.
+At this point, the schema above becomes:
+</p>
+<pre>
+         10__
+             \__same birth
+         11__/
+             \__same death
+         12__/
+             \__same marriage
+         13__/
+</pre>
+<p>
+On this new schema, it is clearer that if you break "same death", you
+end up with two groups 10+11 and 12+13. If you break "same marriage",
+you end up with two groups 10+11+12 and 13. So we have preserved the
+full chain of reasoning. 10 and 13 are only related together through
+a chain of assertions, and disproving any of these will simply unrelate
+10 and 13.
+</p>
+
 <h3>Open questions</h3>
 
 <ul>
