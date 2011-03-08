@@ -24,6 +24,14 @@ The code of geneapro includes several packages that could be reused in other pro
       lines are indented with spaces (better showing the structure of the file), and
       color highlighting is used to show the various parts of the line
       </li>
+
+  <li><pre>gedcom_anon.py</pre></br>
+      An anonymizer for gedcom files. It substitutes "anonymous" for all
+      names and file names that occur in your file, thus making it slightly
+      safer to send this file over to report a bug. This is not fully
+      anonym though, one might still extract information about step sisters,
+      death of parents,... if we know you sent it and are the first person
+      in the file.</li>
 </ul>
 
 <% endblock container %>
