@@ -111,34 +111,6 @@ dot -Tpdf -o datamodel.pdf t.dot
    </pre>
 </p>
 
-
-<h3>Children</h3>
-
-<p>
-The GenTech data model was meant to have one single place to store any given data (as opposed to Gedcom where a lot of things are still stored inside notes).
-</p>
-
-<p>
-The Gedcom's notion of family no longer exists (good riddance), since it can in fact be calculated from other relationships (marriages, children,...)
-</p>
-
-<p>
-I can think of several ways to store the fact that Y is a child of X:
-</p>
-
-<ul>
-  <li>Create a Group called "children of X", and include Y in that group</li>
-  <li>Create an assertion linking X as "father of" Y.<br>
-      But apparently assertions between two personas are discouraged,
-      except to indicate that two persons represent the same physical person.</li>
-  <li> Create an event to represent the birth of Y.<br>
-      Mark Y as having the "principal" role for this event,
-      and "X" as having the role "father".<br>
-      The advantage here is that the event also stores the location and date of the
-      birth without having to duplicate that info elsewhere.<br>
-      This is approach that was chosen in GeneaPro.</li>
-</ul>
-
 <h3>Individual sources</h3>
 
 <p>
@@ -200,6 +172,21 @@ or both parents are unknown. To preserve the "siblings" relationship between
 the children, Geneapro has to create personas for the parents, even though
 no information is known about them. But that links the children together
 through these parents. The group approach might be cleaner here.
+
+Here are the possible other approaches to storing "child of" information:
+<ul>
+  <li>Create a Group called "children of X", and include Y in that group</li>
+  <li>Create an assertion linking X as "father of" Y.<br>
+      But apparently assertions between two personas are discouraged,
+      except to indicate that two persons represent the same physical person.</li>
+  <li> Create an event to represent the birth of Y.<br>
+      Mark Y as having the "principal" role for this event,
+      and "X" as having the role "father".<br>
+      The advantage here is that the event also stores the location and date of the
+      birth without having to duplicate that info elsewhere.<br>
+      This is approach that was chosen in GeneaPro.</li>
+</ul>
+
 
 <a name="merge"/>
 <h3>Merging personas</h3>
@@ -314,6 +301,28 @@ a chain of assertions, and disproving any of these will simply unrelate
       own, with an existence-date. (But then I am not sure how to link from
       these historial names to the current corresponding places).
   </li>
+  <li>Undoing an import</br>
+      It should be possible to import a gedcom file in the database, analyze
+      its contents in respect to the previous contents of the database, and
+      for instance link personas through a "sameAs" relationship. At any
+      point, we should be able to undo the import (or better to temporarily
+      mark it as invalid), and view the database without it. That requires
+      a tracing from database element (persona, events, assertions,...) to
+      the gedcom import.<br>
+      Currently, geneapro (wrongly) uses a <i>Project</i> for that purpose,
+      but it would be better to use a source (the gedcom file itself is the
+      source). Then a general feature to disable a source (perhaps because
+      its surety level is set to 0, or some such) would hide all information
+      that came from that source (ie all assertions). There is no direct
+      link from a persona or an event to a source, though, only through an
+      assertion, so we wouldn't know exactly what to remove if we want to
+      delete the source. Also, if an event had a source in the gedcom file,
+      the Geneapro importer will create two assertions for that event: one
+      for the "gedcom file" source, and one for the source found in the
+      gedcom. So the assertion will still be visible when we disable the
+      "gedcom file" (which might be a feature, but doesn't provide an easy
+      way to remove the events coming from gedcom)
+   </li>
 </ul>
 
 
