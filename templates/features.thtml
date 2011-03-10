@@ -21,6 +21,40 @@ Some general questions and answers that are common to all reports:
 </p>
 
 <ol>
+  <li><b>How is the information stored ?</b>
+      <p>
+   Although this might seem like a highly technical question of little
+   concern to most people, it is actually very relevant. In most genealogy
+   application, the information you entered is stored in a <b>propriatery</b>
+   format. The only way to extract that information and import it in another
+   software is to export in the GENCOM format (and it is well known that this
+   format is limited and cannot contain all the data that modern genealogy
+   applications store).
+      </p>
+      <p>
+   Some applications are able to directly import data from another
+   application. The developers have done reverse engineering to try and
+   understand the format, but there is no guarantee that this will always
+   work.
+      </p>
+      <p>
+   By contrast, Geneapro stores everything in a standard SQL database (which
+   you chose, it can be sqlite, postgreSQL, mysql,...). The schema of the
+   database is fully public and documented, which means that there are lots
+   of interfaces out there that gives direct access to the data (web, GUI,
+   command line,...)
+      </p>
+      <p>
+   Furthermore, Geneapro is <b>open source</b>. This means that even if
+   its developers cease to maintain or develop it, all is not lost. First,
+   your data is still accessible as always. There is no license that
+   expires. If you are a developer yourself, you can take over the
+   maintainance. If you are not, you might be able to motivate other people
+   to take over the maintainance.
+      </p>
+  </li>
+
+
   <li><b>Is there a limit to the number of persons in the database ?</b>
       <p>No.</p>
       <p>
