@@ -199,6 +199,16 @@ a chain of assertions, and disproving any of these will simply unrelate
 10 and 13.
 </p>
 
+<h3>Characteristics</h3>
+<p>
+A minor change was done to the handling of characteristics. In
+geneapro, a "Characteristic" has its own name, in addition to having
+names characteristic_parts. This is useful when displaying multi-parts
+characteristics (like a name, which is made of a given name, a surname,...).
+Otherwise, when displaying the known information about a persona, there is
+no easy way to show what a group of characteristic_parts is about.
+</p>
+
 <h3>Open questions</h3>
 
 <ul>
