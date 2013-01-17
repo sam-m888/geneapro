@@ -98,12 +98,6 @@ your genealogical tree, showing various aspects.
 
 <ul>
   <li>A <b>Pedigree view</b>
-      <a href="pedigree1.png" style="float:right">
-         <img src="pedigree1.png">
-      </a>
-      <a href="pedigree2.png" style="clear:right; float:right">
-         <img src="pedigree2.png">
-      </a>
       <p>
       Given a person (often called the <i>decujus</i>), the pedigree shows a
       tree of all its ancestors up to a number of generations.
@@ -116,29 +110,67 @@ your genealogical tree, showing various aspects.
       a bit slow. But displaying 8 or 9 generations is no problem.
       </p>
       <p>
-      Geneapro will also show you the children of the <i>decujus</i>.
+      Geneapro will also show you the children of the <i>decujus</i>, to
+      ease navigation.
+      </p>
+      <p>
+      The pedigree view is fully zoomable, and will display more information
+      as you zoom in.
       </p>
       <p>
       Clicking on any person in the tree will make that person the new
       decujus, and show his/her own tree.
       </p>
-      <p>
-      There are currently two implementations of the pedigree view. One is
-      based on <abbr>SVG</abbr>, and is slower. It will soon be discarded.
-      The second one is based on the HTML5 canvas, and works correctly in
-      all modern browsers (Chrome, Firefox and Opera). Hasn't been tested on
-      Internet Explorer 9.
       </p>
+      <p>Double-clicking on a person leads you to the Person view</p>
       <p>
       Since sources as so important in geneapro, it will add a check mark
       next to all dates and places for which at least one source is available.
       </p>
       <p>
-      The styling used for each person (background color, text color, font,...)
-      can be configured by creating <a href="highlighting.html">Highlighting
-      rules</a>.
+      The pedigree, like the fanchart, can be displayed with multiple color
+      schemes:
+      <ul>
+         <li>One is based on rules provided by the user, where the styling
+             used for each person (background, text color, font,...) can be
+             configured by creating <a href="highlighting.html">Highlighting
+             rules</a>.
+             <a href="pedigree4.png" style="float:right"><img src="pedigree4.png"></a>
+             </li>
+         <li>The second one will highlight based on the location of the
+             person in the pedigree tree (generation and sosa number).
+             <a href="pedigree3.png" style="float:right"><img src="pedigree3.png"></a>
+             </li>
+         <li>The third highlights purely based on the generation of the
+             person.
+             <a href="pedigree5.png" style="float:right"><img src="pedigree5.png"></a>
+             </li>
+         <li>The fourth does not draw any box, but is able to use more space
+             to display details on the person.
+             <a href="pedigree6.png" style="float:right"><img src="pedigree6.png"></a>
+             </li>
+      </ul>
       </p>
-      <p>Double-clicking on a person leads you to the Person view</p>
+      <p>
+      There are also two layout algorithms:
+      <ul>
+         <li>One reserves space for all persons in the tree, even if that person
+             is not known yet. It occupies more space, but might make it easier
+             to follow a branch at a glance.
+             <a href="pedigree1.png" style="float:right">
+                <img src="pedigree1.png">
+             </a>
+             </li>
+         <li>The second one is the compact mode, where unknown persons do not
+             occupy any place on the screen.</li>
+      </ul>
+      In addition, you can configure whether all boxes should occupy the same
+      space, or whether later generations are displayed smaller (thus leading to
+      a better overview of the tree, and you can zoom in to see the details).
+      <a href="pedigree2.png" style="clear:right; float:right">
+         <img src="pedigree2.png">
+      </a>
+      </p>
       </li>
 
   <li>A <b>Fan chart</b>
