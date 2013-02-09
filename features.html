@@ -89,8 +89,74 @@ body {margin:0; background-color: white; font-family: "Arial"; color: #000000}
 
 <p>
 Geneapro only has a limited number of features currently, but hopefully
-things will improve.
+things will improve. Here is nonetheless a list of features that do
+distinguish Geneapro from other genealogy software (and the reason why
+I started development on this project initially):
 </p>
+
+<ul>
+   <li><b>Web-based interface, local server</b><br>
+   Geneapro provides a web-based interface, that is you use it through
+   your web browser. This allows you to access it from a lot of devices
+   out there (Windows, Mac and Linux PCs, but also tablets,...). No need
+   to install it on all those platforms.<br>
+   But as opposed to some of the major-brand genealogy software, Geneapro
+   runs locally on your machine (or somewhere at a web-hosting company
+   that you chose). You always have full access to your data. And since
+   Geneapro datamodel is documented, and the data stored in a standard
+   sqlite database, you will be able to access it even if Geneapro no
+   longer exists.</li>
+
+   <li><b>Unlimited number of generations in Pedigree</b><br>
+   For some reason, a lot of software limits you to displaying three or
+   four generation of ancestors at most on your pedigree. To see more,
+   you have to select another person and display her ancestors. This
+   isn't convenient, and machines nowadays are easily able to display
+   much more than that.</li>
+
+   <li><b>Both ancestors and descendants on Pedigree</b><br>
+   Likewise, some software have two separate reports to show the ancestors
+   and the descendants of a person (or in the best cases they display one
+   generation of descendants along with the ancestors to ease navigation).
+   <br>
+   Geneapro, on the other hand, uses a single view that combines the two,
+   and you chose dynamically how many generations of each you want to
+   display.</li>
+
+   <li><b>No family events</b><br>
+   Geneapro gets away from the traditional notion of family in genealogy
+   software. In some applications, if you want to see all the events for
+   one person you have to see her personal events, then the events for
+   each of the families she belonged to (with her parents and with her
+   different partners).<br>
+   When you research data, on the other hand, you generally concentrate
+   on one person, not on a family. So Geneapro really focuses on the
+   person, and does not show the notion of family. Of course, to show
+   a pedigree, Geneapro will look at the parent-child or spouse relationships
+   that might exist in your database, and recompute what is necessary.<br>
+   A marriage is actually an event on which two persons have a "principal"
+   role (husband and wife), and many others can have a "witness" role. This
+   event is shared by all the persons, and only the roles distinguish the
+   persons.</li>
+
+   <li><b>Assertions</b><br>
+   Most genealogy software allow you to store conclusions (Alan was born
+   on 28-02-1900), but not the reasoning that lead to those conclusions.
+   For instance, it is possible that as part of your reasearch you have
+   found two documents that indicate 27-02-1900 and 28-02-1900 as dates
+   of births. Some other document lead you to chose the second one as
+   the most probable date. This choice should be explained, and the
+   reasoning stored for when you go back to Alan in a few months or
+   years).</li>
+
+   <li><b>Source based</b><br>
+   When we say that geneapro is source based, we really mean it. You cannot
+   enter an event or an assertion without a proper source to indicate where
+   you got that piece of information from (even if the source is simply a
+   "conversation with xxx"). So you can go back years later and examine the
+   source again.</li>
+
+</ul>
 
 <p>
 This is open-source software, so feel free to contribute your ideas,
