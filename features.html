@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>Geneapro @ GitHub</title>
+	<title>Geneaprove @ GitHub</title>
 	<style type="text/css">
 body {margin:0; background-color: white; font-family: "Arial"; color: #000000}
   
@@ -63,7 +63,7 @@ body {margin:0; background-color: white; font-family: "Arial"; color: #000000}
           <img border="0" width="90"
                src="https://github.com/images/modules/download/tar.png"></a>
     </div>
-    <a href="http://github.com/briot/geneapro">G&eacute;n&eacute;apro</a>
+    <a href="http://github.com/briot/geneapro">G&eacute;n&eacute;aprove</a>
     <div class="phrase">Evidence your genealogy</div>
    </div>
 
@@ -88,23 +88,23 @@ body {margin:0; background-color: white; font-family: "Arial"; color: #000000}
      <h2>Features</h2>
 
 <p>
-Geneapro only has a limited number of features currently, but hopefully
+Geneaprove only has a limited number of features currently, but hopefully
 things will improve. Here is nonetheless a list of features that do
-distinguish Geneapro from other genealogy software (and the reason why
+distinguish Geneaprove from other genealogy software (and the reason why
 I started development on this project initially):
 </p>
 
 <ul>
    <li><b>Web-based interface, local server</b><br>
-   Geneapro provides a web-based interface, that is you use it through
+   Geneaprove provides a web-based interface, that is you use it through
    your web browser. This allows you to access it from a lot of devices
    out there (Windows, Mac and Linux PCs, but also tablets,...). No need
    to install it on all those platforms.<br>
-   But as opposed to some of the major-brand genealogy software, Geneapro
+   But as opposed to some of the major-brand genealogy software, Geneaprove
    runs locally on your machine (or somewhere at a web-hosting company
    that you chose). You always have full access to your data. And since
-   Geneapro datamodel is documented, and the data stored in a standard
-   sqlite database, you will be able to access it even if Geneapro no
+   Geneaprove datamodel is documented, and the data stored in a standard
+   sqlite database, you will be able to access it even if Geneaprove no
    longer exists.</li>
 
    <li><b>Unlimited number of generations in Pedigree</b><br>
@@ -119,20 +119,20 @@ I started development on this project initially):
    and the descendants of a person (or in the best cases they display one
    generation of descendants along with the ancestors to ease navigation).
    <br>
-   Geneapro, on the other hand, uses a single view that combines the two,
+   Geneaprove, on the other hand, uses a single view that combines the two,
    and you chose dynamically how many generations of each you want to
    display.</li>
 
    <li><b>No family events</b><br>
-   Geneapro gets away from the traditional notion of family in genealogy
+   Geneaprove gets away from the traditional notion of family in genealogy
    software. In some applications, if you want to see all the events for
    one person you have to see her personal events, then the events for
    each of the families she belonged to (with her parents and with her
    different partners).<br>
    When you research data, on the other hand, you generally concentrate
-   on one person, not on a family. So Geneapro really focuses on the
+   on one person, not on a family. So Geneaprove really focuses on the
    person, and does not show the notion of family. Of course, to show
-   a pedigree, Geneapro will look at the parent-child or spouse relationships
+   a pedigree, Geneaprove will look at the parent-child or spouse relationships
    that might exist in your database, and recompute what is necessary.<br>
    A marriage is actually an event on which two persons have a "principal"
    role (husband and wife), and many others can have a "witness" role. This
@@ -150,7 +150,7 @@ I started development on this project initially):
    years).</li>
 
    <li><b>Source based</b><br>
-   When we say that geneapro is source based, we really mean it. You cannot
+   When we say that geneaprove is source based, we really mean it. You cannot
    enter an event or an assertion without a proper source to indicate where
    you got that piece of information from (even if the source is simply a
    "conversation with xxx"). So you can go back years later and examine the
@@ -185,14 +185,14 @@ Some general questions and answers that are common to all reports:
    work.
       </p>
       <p>
-   By contrast, Geneapro stores everything in a standard SQL database (which
+   By contrast, Geneaprove stores everything in a standard SQL database (which
    you chose, it can be sqlite, postgreSQL, mysql,...). The schema of the
    database is fully public and documented, which means that there are lots
    of interfaces out there that gives direct access to the data (web, GUI,
    command line,...)
       </p>
       <p>
-   Furthermore, Geneapro is <b>open source</b>. This means that even if
+   Furthermore, Geneaprove is <b>open source</b>. This means that even if
    its developers cease to maintain or develop it, all is not lost. First,
    your data is still accessible as always. There is no license that
    expires. If you are a developer yourself, you can take over the
@@ -205,12 +205,12 @@ Some general questions and answers that are common to all reports:
   <li><b>Is there a limit to the number of persons in the database ?</b>
       <p>No.</p>
       <p>
-   Geneapro uses a real <a href="gentech.html">database</a>
+   Geneaprove uses a real <a href="gentech.html">database</a>
    (postgreSQL, mySQL or sqlite) as its data storage, and they do
    not impose limits.
       </p>
       <p>
-   Geneapro is carefully optimized to limit the number of queries. For
+   Geneaprove is carefully optimized to limit the number of queries. For
    instance, to display the pedigree, it needs one query per generation
    in your whole tree (even in the parts that are not displayed), plus
    a few others to get the birth and death dates. Using style highlighting
@@ -220,7 +220,7 @@ Some general questions and answers that are common to all reports:
       </p>
   </li>
 
-  <li><b>Does geneapro support same-sex marriages ?</b>
+  <li><b>Does geneaprove support same-sex marriages ?</b>
       <p>Yes.</p>
       <p>
    A marriage is just an <a href="gentech.html">event</a> in which several
@@ -237,11 +237,11 @@ Some general questions and answers that are common to all reports:
       </p>
   </li>
 
-  <li><b>Does Geneapro handle the implex ?</b>
+  <li><b>Does Geneaprove handle the implex ?</b>
       <p>
    The implex is one person appears several times in a pedigree (for
    instance, the same couple was the parents of two of your ancestors).
-   Like all other genealogical software, Geneapro will of course not
+   Like all other genealogical software, Geneaprove will of course not
    duplicate data about those persons in the database. In addition, you
    can configure the highlighting styles so that a person that appears
    multiple times in the tree or fanchart visible on the screen gets
@@ -250,9 +250,9 @@ Some general questions and answers that are common to all reports:
       </p>
   </li>
 
-  <li><b>Does Geneapro support sources ?</b>
+  <li><b>Does Geneaprove support sources ?</b>
       <p>
-   Although support for sources is currently limited, Geneapro will
+   Although support for sources is currently limited, Geneaprove will
    nonetheless show a special tick mark next to birth, marriage or
    death events when they have a proper associated source. This is
    a convenient way to find out which sources should be updated.
@@ -261,39 +261,39 @@ Some general questions and answers that are common to all reports:
 
   <li><b>What format should I use for dates ?</b>
       <p>
-   Geneapro supports multiple input formats for dates. In particular,
+   Geneaprove supports multiple input formats for dates. In particular,
    the usual formats yyyy-mm-dd, dd-mm-yyyy, "yyyy mm, dd", as well as
    ambiguous formats like "about yyyy", "ca yyyy", "between yyyy-mm and yyyy".
    It also supports other calendars like Julian dates and the French
    revolutionary calendar.
       </p>
       <p>
-   In fact, you are free to use any format you want, and geneapro will
+   In fact, you are free to use any format you want, and geneaprove will
    store it exactly as is in its database, and print it exactly as. But
    it will try internally to make sense out of it, for sorting purposes.
    This is done automatically.
       </p>
   </li>
 
-  <li><b>Will Geneapro preserve accents and special characters ?</b>
+  <li><b>Will Geneaprove preserve accents and special characters ?</b>
       <p>
       Yes.
       </p>
       <p>
-      Geneapro's code is fully unicode-based. This means that all accented
+      Geneaprove's code is fully unicode-based. This means that all accented
       characters, asian characters and in fact any character you can currently
       type on your computer will be properly stored in the database, then
-      manipulated by Geneapro, and finally properly displayed on the web
+      manipulated by Geneaprove, and finally properly displayed on the web
       pages.
       </p>
   </li>
 
-  <li><b>Does Geneapro provide support for merging persons ?</b>
+  <li><b>Does Geneaprove provide support for merging persons ?</b>
       <p>
       No.
       </p>
       <p>
-      The idea is at the heart of the gentech datamodel that Geneapro uses.
+      The idea is at the heart of the gentech datamodel that Geneaprove uses.
       Here, you
       create any number of personas, each representing a few aspects of a
       real-life person. For instance, if you find a birth record for John
@@ -311,7 +311,7 @@ Some general questions and answers that are common to all reports:
       also provide and store an explanation for the merge).
       </p>
       <p>
-      At this point, Geneapro will only show one John Smith in the pedigree
+      At this point, Geneaprove will only show one John Smith in the pedigree
       and the list of people. But this John Smith has both birth and
       death dates and places. So this is similar to <b>merging</b> in other
       applications.
@@ -320,10 +320,10 @@ Some general questions and answers that are common to all reports:
       The real strength of the Gentech model, however, comes later. If at
       any point you find out that personas 10 and 11 are not the same after
       all, you can break the link we created earlier (and always with a
-      rationale and source, if possible). Geneapro goes back to showing two
+      rationale and source, if possible). Geneaprove goes back to showing two
       John Smith in the list of persons, one where the birth is known, the
       other where the death is known. If you ever want to link these again,
-      Geneapro will be able to tell you this is likely incorrect, and show
+      Geneaprove will be able to tell you this is likely incorrect, and show
       you the rationale you provided before, thus preventing you from doing
       the same mistake again (or not...)
       </p>
@@ -343,7 +343,7 @@ Some general questions and answers that are common to all reports:
       you are on your own to decide which information should be moved.
       </p>
       <p>
-      When you import a Gedcom file, Geneapro provides a checkbox that
+      When you import a Gedcom file, Geneaprove provides a checkbox that
       allows you whether you want to create a single persona for each person
       in the gedcom, or whether you want to create one persona for each
       source/person found in the gedcom, and automatically link these personas

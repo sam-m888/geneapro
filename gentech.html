@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>Geneapro @ GitHub</title>
+	<title>Geneaprove @ GitHub</title>
 	<style type="text/css">
 body {margin:0; background-color: white; font-family: "Arial"; color: #000000}
   
@@ -63,7 +63,7 @@ body {margin:0; background-color: white; font-family: "Arial"; color: #000000}
           <img border="0" width="90"
                src="https://github.com/images/modules/download/tar.png"></a>
     </div>
-    <a href="http://github.com/briot/geneapro">G&eacute;n&eacute;apro</a>
+    <a href="http://github.com/briot/geneapro">G&eacute;n&eacute;aprove</a>
     <div class="phrase">Evidence your genealogy</div>
    </div>
 
@@ -101,11 +101,11 @@ The idea behind this model is that all genealogical assertions about a person or
   <img src="datamodel.png">
 </a>
 <p>
-Here is the database schema underneath geneapro. We use a standard SQL database (django supports various DBMS, although by default geneapro is configured for sqlite). The queries are carefully optimized to limit their count and keep geneapro fast.
+Here is the database schema underneath geneaprove. We use a standard SQL database (django supports various DBMS, although by default geneaprove is configured for sqlite). The queries are carefully optimized to limit their count and keep geneaprove fast.
 </p>
 <p>
 <i>This image was generated with</i>
-  <pre>./manage.py graph_models geneapro > t.dot
+  <pre>./manage.py graph_models geneaprove &gt; t.dot
 dot -Tpdf -o datamodel.pdf t.dot
    </pre>
 </p>
@@ -118,7 +118,7 @@ an event. This in general occurs when a person is cited in a source (so
 we know her name, but not much else).
 </p>
 <p>
-In Geneapro, we store those as CENS (Census) events, using the source for
+In Geneaprove, we store those as CENS (Census) events, using the source for
 that event.
 </p>
 
@@ -161,14 +161,14 @@ and "mother".</li>
   <li><b>Siblings</b> can be found by looking for persons that have
 the same parents. This doesn't provide an ordering though (except by
 birth dates when they are known). To handle such a case, Gentech
-recommends creating a "children of..." group. Geneapro currently doesn't
+recommends creating a "children of..." group. Geneaprove currently doesn't
 use this approach, but might at some point. The main issue is GUI related,
 since we might not want to force users to manually create such groups.</li>
 </ul>
 
 There is a slight problem when importing, from gedcom, a family where one
 or both parents are unknown. To preserve the "siblings" relationship between
-the children, Geneapro has to create personas for the parents, even though
+the children, Geneaprove has to create personas for the parents, even though
 no information is known about them. But that links the children together
 through these parents. The group approach might be cleaner here.
 
@@ -183,7 +183,7 @@ Here are the possible other approaches to storing "child of" information:
       and "X" as having the role "father".<br>
       The advantage here is that the event also stores the location and date of the
       birth without having to duplicate that info elsewhere.<br>
-      This is approach that was chosen in GeneaPro.</li>
+      This is approach that was chosen in GeneaProve.</li>
 </ul>
 
 
@@ -191,7 +191,7 @@ Here are the possible other approaches to storing "child of" information:
 <h3>Merging personas</h3>
 
 <p>
-As explained in the <a href="features.html">Features</a> page, Geneapro
+As explained in the <a href="features.html">Features</a> page, Geneaprove
 does not support the merging of two persons. However, it does support a
 way to link two or more personas to indicate they represent the same
 physical person and thus the events and characteristics of both personas
@@ -222,7 +222,7 @@ assertion between two personas. It has however a few disadvantages.
   <li>Efficiency is not excellent, because everytime we display one persona we
 need extra queries to find the "sameAs" groups it belongs to, then search
 all personas in that group, and the same for those new personas. Since
-Geneapro is meant to run locally on a user's machine, this drawback is not
+Geneaprove is meant to run locally on a user's machine, this drawback is not
 major though, computers still have plenty of power to spare.</li>
   <li>The above efficiency issue is made more important because groups can
 belong to groups. For instance, you assume that persona 10 and persona 11 are
@@ -251,7 +251,7 @@ together. So we need groups inside groups (as is represented on the
 schema above in fact). But one thing not visible on the schema, and
 that cannot be represented with the groups, is that the "same death"
 assertion is about 11 and 12. This is only visible in the rationale
-text associated with the assertion, which Geneapro cannot automatically
+text associated with the assertion, which Geneaprove cannot automatically
 use.
 <p>
 </li>
@@ -285,7 +285,7 @@ a chain of assertions, and disproving any of these will simply unrelate
 <h3>Characteristics</h3>
 <p>
 A minor change was done to the handling of characteristics. In
-geneapro, a "Characteristic" has its own name, in addition to having
+geneaprove, a "Characteristic" has its own name, in addition to having
 names characteristic_parts. This is useful when displaying multi-parts
 characteristics (like a name, which is made of a given name, a surname,...).
 Otherwise, when displaying the known information about a persona, there is
@@ -318,7 +318,7 @@ no easy way to show what a group of characteristic_parts is about.
       mark it as invalid), and view the database without it. That requires
       a tracing from database element (persona, events, assertions,...) to
       the gedcom import.<br>
-      Currently, geneapro (wrongly) uses a <i>Project</i> for that purpose,
+      Currently, geneaprove (wrongly) uses a <i>Project</i> for that purpose,
       but it would be better to use a source (the gedcom file itself is the
       source). Then a general feature to disable a source (perhaps because
       its surety level is set to 0, or some such) would hide all information
@@ -326,7 +326,7 @@ no easy way to show what a group of characteristic_parts is about.
       link from a persona or an event to a source, though, only through an
       assertion, so we wouldn't know exactly what to remove if we want to
       delete the source. Also, if an event had a source in the gedcom file,
-      the Geneapro importer will create two assertions for that event: one
+      the Geneaprove importer will create two assertions for that event: one
       for the "gedcom file" source, and one for the source found in the
       gedcom. So the assertion will still be visible when we disable the
       "gedcom file" (which might be a feature, but doesn't provide an easy
