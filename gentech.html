@@ -292,6 +292,30 @@ Otherwise, when displaying the known information about a persona, there is
 no easy way to show what a group of characteristic_parts is about.
 </p>
 
+<h3>Repositories</h3>
+<p>
+One source can be found in zero or more repositories; a repository can
+contain zero or more sources. In practice, the repository information is
+part of the full citation for a source (for instance see the book
+"Evidence Explained!" by E. Shown Mills), so is stored as part of the
+citation_part table in the Gentech model.
+</p>
+<p>
+Duplicating that info into another set of tables for the repositories does
+not bring much added value. In fact, one can assume that the same source
+found in two different repositories will in general be a different copy
+of the source, and so potentially a different analysis should be made.
+Such a "duplicate" source could for instance be stored as a lower-level
+source in a source hierarchy. 
+</p>
+<p>
+The only interesting role given to a Repository, as described in the
+Gentech data model, is that of storing access information (postal
+address, schedules,...) and as part of a Search plan.
+For now, Geneaprove therefore does not handle repositories as separate
+entities.
+</p>
+
 <h3>Open questions</h3>
 
 <ul>
