@@ -126,19 +126,17 @@ But this is coming soon!
 </p>
 
 <h2>Install</h2>
-<p>To install:
- <ul>
-  <li>Change settings.py if appropriate to reflect the database engine and name you wish to use</li>
-  <li>run   <tt>make reset</tt><br>
-     This creates the tables and imports initial data in it.</li>
-  <li>run   <tt>./manage.py import file.ged</tt><br>
-     to import the given gedcom file in the database</li>
- </ul>
+
+Check the README file, which contains the most up-to-date information on how
+to get started with geneaprove. Here is an executive summary:
+
+<p>
+Change settings.py if appropriate to reflect the database engine and name you wish to use.
 </p>
 <p>
-You can then run the server as usual with django by running<br>
-<tt>./manage.py  runserver</tt><br>
-and connect to <tt>http:/127.0.0.1:8000/</tt>
+Run <tt>geneaprove.py</tt>, which creates an empty database and starts the server.
+You can import your existing GEDCOM data directly by connecting to
+<a href="http://127.0.0.1:8000">this server</a> with a web browser.
 </p>
 
 <h2>License</h2>
