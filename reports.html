@@ -20,7 +20,7 @@ body {margin:0; background-color: white; font-family: "Arial"; color: #000000}
    margin:-15px 0 0 65px; text-shadow: black 1px 1px 2px}
 #head .download {float: right; margin-right:100px}
 
-#sidebar {width:200px; float:left; height:100%}
+#sidebar {width:200px; position:absolute; height:100%}
 
 #sidebar h2 {margin:5px 0 0 5px; padding:3px; color:white;
              font-weight:normal; font-size:1em;
@@ -49,6 +49,13 @@ body {margin:0; background-color: white; font-family: "Arial"; color: #000000}
 #container img {max-width:200px; max-height:200px; margin-left:15px}
          #container li {min-height:210px} /* height of pictures is 200px*/
 
+#container p, #container li {clear: both}
+#container li { margin-top: 40px; padding-top: 20px; border-top: 1px solid #777 }
+#container li li { border-top: 0; margin-top: 20px}
+
+.images { position: absolute; left: 940px }
+.images a { float: left }
+
 	</style>
 </head>
 
@@ -70,25 +77,20 @@ body {margin:0; background-color: white; font-family: "Arial"; color: #000000}
 
   <div id="sidebar">
         <h2><a href="index.html">Home</a></h2>
-
         <h2 class="selected"><a href="features.html">Features</a></h2>
         <ul>
           <li><a href="gedcom.html">Gedcom</a></li>
           <li><a href="reports.html">Reports</a></li>
           <li><a href="highlighting.html">People highlighting</a></li>
         </ul>
-
-        <h2><a href="screenshots.html">Screenshots</a></h2>
-
         <h2><a href="download.html">Download</a></h2>
-
         <h2><a href="impl.html">Implementation</a></h2>
   </div>
   
   <div id="container">
      <h2>Reports</h2>
 
-<p>
+     <p>
 All genealogical software include <b>reports</b>. These are views into
 your genealogical tree, showing various aspects.
 </p>
@@ -131,70 +133,92 @@ your genealogical tree, showing various aspects.
       The pedigree, like the fanchart, can be displayed with multiple color
       schemes:
       <ul>
-         <li>One is based on rules provided by the user, where the styling
+         <li>
+             <span class='images'>
+                <a href="screenshots/pedigree4.png"><img src="screenshots/pedigree4.png"></a>
+             </span>
+             One is based on rules provided by the user, where the styling
              used for each person (background, text color, font,...) can be
              configured by creating <a href="highlighting.html">Highlighting
              rules</a>.
-             <a href="screenshots/pedigree4.png" style="float:right"><img src="screenshots/pedigree4.png"></a>
-             </li>
-         <li>The second one will highlight based on the location of the
+         </li>
+         <li>
+             <span class='images'>
+                <a href="screenshots/pedigree3.png"><img src="screenshots/pedigree3.png"></a>
+             </span>
+             The second one will highlight based on the location of the
              person in the pedigree tree (generation and sosa number).
-             <a href="screenshots/pedigree3.png" style="float:right"><img src="screenshots/pedigree3.png"></a>
-             </li>
-         <li>The third highlights purely based on the generation of the
+         </li>
+         <li>
+             <span class='images'>
+                <a href="screenshots/pedigree5.png"><img src="screenshots/pedigree5.png"></a>
+             </span>
+             The third highlights purely based on the generation of the
              person.
-             <a href="screenshots/pedigree5.png" style="float:right"><img src="screenshots/pedigree5.png"></a>
-             </li>
-         <li>The fourth does not draw any box, but is able to use more space
+         </li>
+         <li>
+             <span class='images'>
+                <a href="screenshots/pedigree6.png"><img src="screenshots/pedigree6.png"></a>
+             </span>
+             The fourth does not draw any box, but is able to use more space
              to display details on the person.
-             <a href="screenshots/pedigree6.png" style="float:right"><img src="screenshots/pedigree6.png"></a>
-             </li>
-         <li>The fifth uses one color for each of the grand-parents.
-             <a href="screenshots/pedigree7.png" style="float:right"><img src="screenshots/pedigree7.png"></a>
-             </li>
-      </ul>
-      </p>
-
-      <p>
-      There are also two layout algorithms:
-      <ul>
-         <li>One reserves space for all persons in the tree, even if that person
-             is not known yet. It occupies more space, but might make it easier
-             to follow a branch at a glance.
-             </li>
-         <li>The second one is the compact mode, where unknown persons do not
-             occupy any place on the screen.
-             <a href="screenshots/pedigree_compact.png" style="float:right"><img src="screenshots/pedigree_compact.png"></a>
+         </li>
+         <li>
+             <span class='images'>
+                <a href="screenshots/pedigree7.png"><img src="screenshots/pedigree7.png"></a>
+             </span>
+             The fifth uses one color for each of the grand-parents.
          </li>
       </ul>
-      In addition, you can configure whether all boxes should occupy the same
-      space, or whether later generations are displayed smaller (thus leading to
-      a better overview of the tree, and you can zoom in to see the details).
-      <a href="pedigree2.png" style="clear:right; float:right">
-         <img src="pedigree2.png">
-      </a>
       </p>
 
       <p>
+      There are also several layout algorithms:
+      <ul>
+         <li>
+             <span class='images'>
+                <a href="screenshots/pedigree_expanded.png"><img src="screenshots/pedigree_expanded.png"></a>
+             </span>
+             One reserves space for all persons in the tree, even if that person
+             is not known yet. It occupies more space, but might make it easier
+             to follow a branch at a glance.
+         </li>
+         <li>
+             <span class='images'>
+                <a href="screenshots/pedigree_compact.png"><img src="screenshots/pedigree_compact.png"></a>
+             </span>
+             The second one is the compact mode, where unknown persons do not
+             occupy any place on the screen.
+         </li>
+      </ul>
+      </p>
+      <p>
+         <span class='images'>
+            <a href="screenshots/pedigree_not_same_size.png"><img src="screenshots/pedigree_not_same_size.png"></a>
+         </span>
+         In addition, you can configure whether all boxes should occupy the same
+         space, or whether later generations are displayed smaller (thus leading to
+         a better overview of the tree, and you can zoom in to see the details).
+      </p>
+
+      <p>
+      <span class='images'>
+         <a href="screenshots/pedigree_descendants.png"><img src="screenshots/pedigree_descendants.png"></a>
+      </span>
       Finally, the pedigree can display both ancestors and descendants, up to as
       many generations as you want. The web client will only download the
       information it does not already have, to speed things up.
-      <a href="pedigree_descendants.png" style="clear:right; float:right">
-         <img src="pedigree_descendants.png">
-      </a>
       </p>
       </li>
 
-  <li>A <b>Fan chart</b>
-      <a href="fanchart1.png" style="float:right">
-         <img src="fanchart1.png">
-      </a>
-      <a href="fanchart2.png" style="float:right">
-         <img src="fanchart2.png">
-      </a>
-      <a href="fanchart3.png" style="float:right">
-         <img src="fanchart3.png">
-      </a>
+      <li>
+      A <b>Fan chart</b>
+      <span class='images'>
+         <a href="screenshots/fanchart1.png"><img src="screenshots/fanchart1.png"></a>
+         <a href="screenshots/fanchart2.png"><img src="screenshots/fanchart2.png"></a>
+         <a href="screenshots/fanchart3.png"><img src="screenshots/fanchart3.png"></a>
+         <a href="screenshots/fanchart4.png"><img src="screenshots/fanchart4.png"></a>
+      </span>
       <p>
       Instead of displaying the ancestors as a tree, this report will
       show them in a circle. This is less frequently used, but is a much more
@@ -210,9 +234,9 @@ your genealogical tree, showing various aspects.
       </li>
 
   <li><b>Quilts</b> view
-      <a href="quilts.png" style="float:right">
-         <img src="quilts.png">
-      </a>
+      <span class='images'>
+         <a href="quilts.png"><img src="quilts.png"></a>
+      </span>
       <p>
       Quilts view have been introduced a few years ago by Aviz Research, and are a
       great way to see a lot of people interactively. See the
@@ -221,9 +245,9 @@ your genealogical tree, showing various aspects.
       </li>
 
   <li>A <b>statistics</b> view
-      <a href="stats1.png" style="float:right">
-         <img src="stats1.png">
-      </a>
+      <span class='images'>
+         <a href="stats1.png"><img src="stats1.png"></a>
+      </span>
       <p>
       This page shows the number of persons in your tree (not the total
       number in the database, which very often is irrelevant because people
@@ -238,9 +262,9 @@ your genealogical tree, showing various aspects.
    </li>
 
    <li>A <b>Person</b> view
-      <a href="screenshots/person3.png" style="float:right">
-         <img src="screenshots/person3.png">
-      </a>
+      <span class='images'>
+         <a href="screenshots/person3.png"><img src="screenshots/person3.png"></a>
+      </span>
       This view summarizes all knowns characteristics of a person, and all
       events to which she was part (either as the principal, or in any other
       role). When sources are available for these conclusions, hyper-links to
@@ -256,32 +280,24 @@ your genealogical tree, showing various aspects.
       displayed as a star ration. These schemes can be customized at will,
       so you can adapt to whatever your own conventions are.
       <p>
-      Older screenshots:<br>
-      <a href="screenshots-2014/person2.png"><img src="screenshots-2014/person2.png"></a>
-      <a href="screenshots-old/person1.png"><img src="screenshots-old/person1.png"></a>
-
    </li>
 
    <li>A <b>List of persons</b> view
-      <a href="screenshots/persons3.png" style="float:right">
-         <img src="screenshots/persons3.png">
-      </a>
+      <span class='images'>
+         <a href="screenshots/persons3.png"><img src="screenshots/persons3.png"></a>
+      </span>
+      <p>
       This view lists all known persons in the database. The table can be
       sorted on any of the columns, or can be filtered to see a subset of
       the persons. Clicking on a person will lead you to the Person view.
-      <p>
-      Older screenshots:<br>
-      <a href="screenshots-2014/persons.png"><img src="screenshots-2014/persons.png"></a>
-      <a href="screenshots-old/persons1.png"><img src="screenshots-old/persons1.png"></a>
+      </p>
    </li>
 
    <li>A <b>Source</b> view
-      <a href="source1.png" style="float:right">
-         <img src="source1.png">
-      </a>
-      <a href="source2.png" style="float:right">
-         <img src="source2.png">
-      </a>
+      <span class='images'>
+         <a href="source1.png"><img src="source1.png"></a>
+         <a href="source2.png"><img src="source2.png"></a>
+      </span>
       This view describes a source. It shows all representations (images)
       associated with the source. Each representation can be scrolled and
       zoomed. It is also possible to perform a few basic transformations
